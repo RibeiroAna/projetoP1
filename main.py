@@ -23,7 +23,7 @@ while True:
     if menu == 0:
         window.blit(menu0, (0, 0))
         
-        if (220 < mouse_pos_x < 440 and 160 < mouse_pos_y < 480) and menu == 0:
+        if 220 < mouse_pos_x < 440 and 160 < mouse_pos_y < 480:
             window.blit(menu0_select, (0, 0))
             if click:
                 menu += 1
@@ -48,7 +48,7 @@ while True:
                 window.blit(select, (147, 533))
                 if click:
                     menu = -1
-	# menu sair
+    # menu sair
     if menu == -1:
         window.blit(sair, (0, 0))
         # Captura mouse - jogar mais
