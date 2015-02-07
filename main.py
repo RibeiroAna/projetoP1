@@ -31,12 +31,11 @@ while True:
     # menu principal
     if menu == 1:
         window.blit(menu1, (0, 0))
-        print (mouse_pos_x, mouse_pos_y)
         if mouse_pos_x > 583:
             # Captura mouse - botao jogar
             if 348 < mouse_pos_y < 378:
                 window.blit(select, (543, 358))
-            # Captura mouse - botao ajustes
+            # Captura mouse - botao opcoes
             elif 433 < mouse_pos_y < 478:
                 window.blit(select, (543, 443))
             # Captura mouse - botao creditos
@@ -57,7 +56,7 @@ while True:
             if click:
                 menu = 1
         # Captura mouse - sair
-        elif 9 < mouse_pos_x < 140 and 129 < mouse_pos_y < 585:
+        elif 9 < mouse_pos_x < 140 and 486 < mouse_pos_y < 585:
             if click:
                 sys.exit()
                     
