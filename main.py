@@ -1,4 +1,4 @@
-import pygame, sys
+import pygame, sys, level1
 
 pygame.init()
 pygame.display.set_caption('UFCG: the journey!')
@@ -35,6 +35,8 @@ while True:
             # Captura mouse - botao jogar
             if 348 < mouse_pos_y < 378:
                 window.blit(select, (543, 358))
+                if click:
+				   level1.jogar()
             # Captura mouse - botao opcoes
             elif 433 < mouse_pos_y < 478:
                 window.blit(select, (543, 443))
