@@ -3,7 +3,6 @@ import pygame, sys, level1
 pygame.init()
 pygame.display.set_caption('UFCG: the journey!')
 window = pygame.display.set_mode((800, 600))
-
 # variaveis relacionadas o menu
 white = (255, 255, 255)
 menu = 0
@@ -15,6 +14,7 @@ sair = pygame.image.load('img/menu/sair.png')
 
 while True:
     # variaveis do mouse
+    pygame.mouse.set_visible(True)
     click = pygame.mouse.get_pressed()[0]
     mouse_pos_x = pygame.mouse.get_pos()[0]
     mouse_pos_y = pygame.mouse.get_pos()[1]
@@ -36,7 +36,7 @@ while True:
             if 348 < mouse_pos_y < 378:
                 window.blit(select, (543, 358))
                 if click:
-				   level1.jogar()
+                   level1.jogar()
             # Captura mouse - botao opcoes
             elif 433 < mouse_pos_y < 478:
                 window.blit(select, (543, 443))

@@ -4,7 +4,6 @@ import pygame, sys, time, personagem
 class Nivel1():
     bg_num = 1
     bg1 = "img/sayonara.png"
-    
 
 def jogar():
     window = pygame.display.set_mode((800, 600)) 
@@ -19,7 +18,7 @@ def jogar():
     # botao que define a pausa (por enquanto voltando para o menu)
     pausa = False
     while True:
-    
+        pygame.mouse.set_visible(False)
         window.blit(player.walking_frames_r[0], (player.pos_x, player.pos_y))
         if pausa == True:
             break
