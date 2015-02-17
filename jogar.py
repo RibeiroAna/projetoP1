@@ -42,7 +42,6 @@ def jogar():
             if event.type == pygame.QUIT:
                 sys.exit()
             elif event.type == pygame.KEYDOWN:
-                print event
                 if event.key == pygame.K_ESCAPE:
                     pausa = True
                 if event.key == pygame.K_LEFT:
