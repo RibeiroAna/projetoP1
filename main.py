@@ -4,7 +4,7 @@
 # a ser rodado por este arquivo.                         #
 #     Ana Ribeiro e Matteus Silva, fevereiro de 2015     #   
 
-import pygame, sys, level1
+import pygame, sys, jogar
 
 pygame.init()
 pygame.display.set_caption('UFCG: the journey!')
@@ -42,7 +42,7 @@ while True:
             if 348 < mouse_pos_y < 378:
                 window.blit(select, (543, 358))
                 if click:
-                   level1.jogar()
+                   jogar.jogar()
             # Captura mouse - botao opcoes
             elif 433 < mouse_pos_y < 478:
                 window.blit(select, (543, 443))

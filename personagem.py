@@ -5,7 +5,7 @@
 # movimentos até cortar o sprite                         #
 #     Ana Ribeiro e Matteus Silva, fevereiro de 2015     #   
 
-import pygame, time
+import pygame, time, jogar
 
 class SpriteSheet(object):
     sprite_sheet = None
@@ -21,6 +21,7 @@ class SpriteSheet(object):
 class Personagem():
     walking_frames_r = []
     fundo = pygame.image.load("img/sayonara.png")
+    nivel = 1
     pos_x = 0 
     pos_y = 450
     window = pygame.display.set_mode((800, 600))
@@ -30,6 +31,7 @@ class Personagem():
     image = sprite_sheet.get_image(132, 0, 67, 90)
     walking_frames_r.append(image)
     back_x = 0
+    
     
     def mover_fundo(self, qntde):
 		self.window.blit(self.fundo, (self.back_x - 800, 0))
@@ -51,7 +53,13 @@ class Personagem():
 		if (self.pos_x <=  self.fundo.get_height()):
 			self.mover_fundo(-10)
 			self.mover_personagem(5)
-        #Senão mude de fase, à implementar
+		elif (self.nivel == 1):
+		    self.nivel = 2
+		    jogar.nivel = jogar.Nivel2()
+		    self.pos_x = 0
+		    self.back_x = 0
+		    self.fundo = pygame.image.load(jogar.Nivel2.bg)
+		    pygame.display.update()
 
     def esquerda(self):
 		if (self.pos_x >= 0):

@@ -3,20 +3,26 @@
 # Este arquivo contém os níveis e o que detecta que os   #
 # comandos do teclado.                                   #
 #     Ana Ribeiro e Matteus Silva, fevereiro de 2015     #   
+
 import pygame, sys, time, personagem
 
-
+ 
 class Nivel1():
-    bg_num = 1
-    bg1 = "img/sayonara.png"
+    bg = "img/sayonara.png"
+
+class Nivel2():
+	#fundo provisório =P =V
+    bg = "pessoasbugadas.jpg"
+	
+        
+nivel = Nivel1()		
 
 def jogar():
     window = pygame.display.set_mode((800, 600)) 
     pygame.init()
-    nivel = Nivel1()
     player = personagem.Personagem()
     pygame.init()
-    fundo = pygame.image.load(nivel.bg1)
+    fundo = pygame.image.load(nivel.bg)
     
     #O segundo parâmetro da função define o delay das teclas.
     pygame.key.set_repeat(10, 20) 
@@ -51,5 +57,3 @@ def jogar():
                     
     
         pygame.display.update()
-
-    
