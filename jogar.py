@@ -42,18 +42,14 @@ def jogar():
             if event.type == pygame.QUIT:
                 sys.exit()
             elif event.type == pygame.KEYDOWN:
+                print event
                 if event.key == pygame.K_ESCAPE:
                     pausa = True
                 if event.key == pygame.K_LEFT:
-                    if (player.pos_x != 0):
-                        player.esquerda()
+                    player.esquerda()
                 if event.key == pygame.K_RIGHT:
-                    if (player.pos_x != 800):
-                        player.direita()
-                    else:
-                        player.pos_x = 0
+                    player.direita()
                 if event.key == pygame.K_UP:
                     player.cima()
-                    
-    
+                
         pygame.display.update()
