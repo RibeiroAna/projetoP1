@@ -1,3 +1,9 @@
+#coding: utf-8
+# ------- Código do jogo "UFCG: The Journey -------------#
+# Este arquivo contém o menu do jogo, o jogo deve começar#
+# a ser rodado por este arquivo.                         #
+#     Ana Ribeiro e Matteus Silva, fevereiro de 2015     #   
+
 import pygame, sys, level1
 
 pygame.init()

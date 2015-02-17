@@ -1,3 +1,10 @@
+#coding: utf-8
+# ------- Código do jogo "UFCG: The Journey -------------#
+# Este arquivo contém tudo que se refere ao personagem e #
+# que é necessário para o seu funcionamento, desde os    #
+# movimentos até cortar o sprite                         #
+#     Ana Ribeiro e Matteus Silva, fevereiro de 2015     #   
+
 import pygame, time
 
 class SpriteSheet(object):
@@ -22,45 +29,45 @@ class Personagem():
     walking_frames_r.append(image)
     image = sprite_sheet.get_image(132, 0, 67, 90)
     walking_frames_r.append(image)
-    x = 0
+    back_x = 0
+    
+    def mover_fundo(self, qntde):
+		self.window.blit(self.fundo, (self.back_x - 800, 0))
+		self.window.blit(self.fundo, (self.back_x, 0))
+		self.back_x += qntde
+		
+    def mover_personagem(self, qntde):
+        self.pos_x += qntde
+        self.window.blit(self.fundo, (self.back_x, 0))
+        self.window.blit(self.walking_frames_r[1], (self.pos_x, self.pos_y))
+        pygame.display.update()
+        time.sleep(0.06)
+        self.window.blit(self.fundo, (self.back_x, 0))
+        self.pos_x += qntde
+        self.window.blit(self.walking_frames_r[0], (self.pos_x, self.pos_y))
+        pygame.display.update()
             
     def direita(self):
-        self.window.blit(self.fundo, (self.x - 800, 0))
-        self.window.blit(self.fundo, (self.x, 0))
-        self.x -= 10
-        self.pos_x += 5
-        self.window.blit(self.fundo, (self.x, 0))
-        self.window.blit(self.walking_frames_r[1], (self.pos_x, self.pos_y))
-        pygame.display.update()
-        time.sleep(0.05)
-        self.window.blit(self.fundo, (self.x, 0))
-        self.pos_x += 5
-        self.window.blit(self.walking_frames_r[0], (self.pos_x, self.pos_y))
-        pygame.display.update()
+		if (self.pos_x <=  self.fundo.get_height()):
+			self.mover_fundo(-10)
+			self.mover_personagem(5)
+        #Senão mude de fase, à implementar
 
     def esquerda(self):
-        self.window.blit(self.fundo, (self.x - 800, 0))
-        self.window.blit(self.fundo, (self.x, 0))
-        self.x += 10
-        self.pos_x -= 5
-        self.window.blit(self.walking_frames_r[1], (self.pos_x, self.pos_y))
-        pygame.display.update()
-        pygame.display.update()
-        time.sleep(0.05)
-        self.window.blit(self.fundo, (self.x, 0))
-        self.window.blit(self.walking_frames_r[0], (self.pos_x, self.pos_y))
-        pygame.display.update()
+		if (self.pos_x >= 0):
+		    self.mover_fundo(10)
+		    self.mover_personagem(-5)
 
     def cima(self):
         self.pos_y -= 100
-        self.window.blit(self.fundo, (self.x, 0))
+        self.window.blit(self.fundo, (self.back_x, 0))
         pygame.display.update()
         self.window.blit(self.walking_frames_r[0], (self.pos_x, self.pos_y))
         pygame.display.update()
         self.baixo()
         self.window.blit(self.walking_frames_r[0], (self.pos_x, self.pos_y))
         time.sleep(0.3)
-        self.window.blit(self.fundo, (self.x, 0))
+        self.window.blit(self.fundo, (self.back_x, 0))
         pygame.display.update()
 
 

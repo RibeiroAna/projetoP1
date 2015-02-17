@@ -1,3 +1,8 @@
+#coding: utf-8
+# ------- Código do jogo "UFCG: The Journey -------------#
+# Este arquivo contém os níveis e o que detecta que os   #
+# comandos do teclado.                                   #
+#     Ana Ribeiro e Matteus Silva, fevereiro de 2015     #   
 import pygame, sys, time, personagem
 
 
@@ -12,11 +17,16 @@ def jogar():
     player = personagem.Personagem()
     pygame.init()
     fundo = pygame.image.load(nivel.bg1)
-    pygame.key.set_repeat(1, 200)
+    
+    #O segundo parâmetro da função define o delay das teclas.
+    pygame.key.set_repeat(10, 20) 
+    
     window.blit(player.walking_frames_r[0], (player.pos_x, player.pos_y))
     window.blit(fundo, (0, 0))
+    
     # botao que define a pausa (por enquanto voltando para o menu)
     pausa = False
+    
     while True:
         pygame.mouse.set_visible(False)
         window.blit(player.walking_frames_r[0], (player.pos_x, player.pos_y))
