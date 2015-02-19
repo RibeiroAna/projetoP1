@@ -18,7 +18,12 @@ menu1 = pygame.image.load('img/menu/tela1.png')
 select = pygame.image.load('img/menu/seta_menu.png')
 sair = pygame.image.load('img/menu/sair.png')
 
+# música de fundo
+musica_principal = pygame.mixer.Sound('sound/musica_principal.ogg')
+
 while True:
+    musica_principal.play(-1)
+    
     # variaveis do mouse
     pygame.mouse.set_visible(True)
     click = pygame.mouse.get_pressed()[0]
