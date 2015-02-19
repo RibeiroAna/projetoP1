@@ -7,7 +7,7 @@
 import pygame, sys, jogar
 
 pygame.init()
-pygame.display.set_caption('UFCG: the journey!')
+pygame.display.set_caption('UFCG: the journey!  Mantido por Ana Ribeiro e Matteus Silva')
 window = pygame.display.set_mode((800, 600))
 # variaveis relacionadas o menu
 white = (255, 255, 255)
