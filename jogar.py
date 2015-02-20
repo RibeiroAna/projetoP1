@@ -34,12 +34,13 @@ def jogar():
     pausa = False
     # carrega música
     musica_principal = pygame.mixer.Sound('sound/musica_principal.ogg')
-    
+    volume_principal = 0.01
+    musica_principal.set_volume(volume_principal)
     while True:
         if pausa == True:
             break
         
-        # começa a tocar a música.
+        # começa a tocar a música e define o volume.
         musica_principal.play(-1)
         
         pygame.mouse.set_visible(False)
