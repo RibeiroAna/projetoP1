@@ -19,12 +19,9 @@ select = pygame.image.load('img/menu/seta_menu.png')
 sair = pygame.image.load('img/menu/sair.png')
 
 # sons
-musica_principal = pygame.mixer.Sound('sound/musica_principal.ogg')
 somDeClick = pygame.mixer.Sound('sound/click.wav')
 
 while True:
-    #musica_principal.play(-1)
-    
     # variaveis do mouse
     pygame.mouse.set_visible(True)
     click = pygame.mouse.get_pressed()[0]
