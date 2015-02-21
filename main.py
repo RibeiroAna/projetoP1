@@ -16,7 +16,14 @@ menu0 = pygame.image.load('img/menu/tela0.png')
 menu0_select = pygame.image.load('img/menu/tela0Select.png')
 menu1 = pygame.image.load('img/menu/tela1.png')
 select = pygame.image.load('img/menu/seta_menu.png')
+opcoes = pygame.image.load('img/menu/opcoes.png')
 sair = pygame.image.load('img/menu/sair.png')
+volume_0 = pygame.image.load('img/menu/volume_0.png')
+volume_1 = pygame.image.load('img/menu/volume_1.png')
+volume_2 = pygame.image.load('img/menu/volume_2.png')
+volume_3 = pygame.image.load('img/menu/volume_3.png')
+# volume_musica provisorio
+volume_musica = 0.03
 
 # sons
 somDeClick = pygame.mixer.Sound('sound/click.wav')
@@ -53,6 +60,7 @@ while True:
                 window.blit(select, (543, 443))
                 if click:
                     somDeClick.play()
+                    menu = 2
             # Captura mouse - botao creditos
             elif 517 < mouse_pos_y < 560:
                 window.blit(select, (543, 533))
@@ -65,6 +73,74 @@ while True:
                 if click:
                     somDeClick.play()
                     menu = -1
+    
+    # menu opções
+    if menu == 2:
+        window.blit(opcoes, (0, 0))
+        
+        if 40 < mouse_pos_x < 110 and 30 < mouse_pos_y < 80:
+            if click:
+                somDeClick.play()
+                menu = 1
+        
+        # blocos de controle do volume da música
+        if volume_musica == 0.05:
+            window.blit(volume_3, (490, 320))
+            if 420 < mouse_pos_y < 470:
+                if 490 < mouse_pos_x < 560:
+                    if click:
+                        somDeClick.play()
+                        volume_musica = 0.03
+                        jogar.volume.mudaVolumeMusica(0.03)
+                if 670 < mouse_pos_x < 730:
+                    if click:
+                        somDeClick.play()
+                        pass # blitar seletor
+                        
+        if volume_musica == 0.03:
+            window.blit(volume_2, (490, 320))
+            if 420 < mouse_pos_y < 470:
+                if 490 < mouse_pos_x < 560:
+                    if click:
+                        somDeClick.play()
+                        volume_musica = 0.01
+                        jogar.volume.mudaVolumeMusica(0.01)
+                if 670 < mouse_pos_x < 730:
+                    if click:
+                        somDeClick.play()
+                        volume_musica = 0.05
+                        jogar.volume.mudaVolumeMusica(0.05)
+                        
+        if volume_musica == 0.01:
+            window.blit(volume_1, (490, 320))
+            if 420 < mouse_pos_y < 470:
+                if 490 < mouse_pos_x < 560:
+                    if click:
+                        somDeClick.play()
+                        volume_musica = 0.00
+                        jogar.volume.mudaVolumeMusica(0.00)
+                if 670 < mouse_pos_x < 730:
+                    if click:
+                        somDeClick.play()
+                        volume_musica = 0.03
+                        jogar.volume.mudaVolumeMusica(0.03) 
+                        
+        if volume_musica == 0.00:
+            window.blit(volume_0, (490, 320))
+            if 420 < mouse_pos_y < 470:
+                if 490 < mouse_pos_x < 560:
+                    if click:
+                        somDeClick.play()
+                        pass # blitar seletor
+                if 670 < mouse_pos_x < 730:
+                    if click:
+                        somDeClick.play()
+                        volume_musica = 0.01
+                        jogar.volume.mudaVolumeMusica(0.01)
+                        
+        
+        
+        
     # menu sair
     if menu == -1:
         window.blit(sair, (0, 0))
@@ -84,6 +160,3 @@ while True:
             sys.exit()
             
     pygame.display.update()
-    
-    
-

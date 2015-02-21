@@ -6,6 +6,12 @@
 
 import pygame, sys, time, personagem
 
+class Volume:
+    volume_musica = 0.03
+    def mudaVolumeMusica(self, valor):
+        self.volume_musica = valor
+
+volume = Volume()
  
 class Nivel1():
     bg = "img/sayonara.png"
@@ -34,8 +40,7 @@ def jogar():
     pausa = False
     # carrega música
     musica_principal = pygame.mixer.Sound('sound/musica_principal.ogg')
-    volume_principal = 0.01
-    musica_principal.set_volume(volume_principal)
+    musica_principal.set_volume(volume.volume_musica)
     while True:
         if pausa == True:
             break
