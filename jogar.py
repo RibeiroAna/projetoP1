@@ -6,7 +6,14 @@
 
 import pygame, sys, time, personagem
 
-#Provavelmente estes níveis irão para outro arquivo, mas provisiralmente, aqui
+class Volume:
+    volume_musica = 0.03
+    def mudaVolumeMusica(self, valor):
+        self.volume_musica = valor
+
+volume = Volume()
+ 
+#Provavelmente estes níveis irão para outro arquivo, mas provisiorialmente, aqui
 class Nivel1():
     bg = "img/sayonara.png"
     #A matriz representa o local dos blocos, a ordem é [y1, x1, x2, y2], por que é nessa ordem?
@@ -16,13 +23,14 @@ class Nivel1():
     buracos = [[90, 200], [410, 500]]
 
 class Nivel2():
-	#fundo provisório =P =V
+    #fundo provisório =P =V
     bg = "pessoasbugadas.jpg"
     platforms = [[0,0,0]]
+    buracos = []
 		
         
 nivel = Nivel1()	
-
+    
 def jogar():
     window = pygame.display.set_mode((800, 600)) 
     pygame.init()
@@ -37,16 +45,26 @@ def jogar():
     window.blit(fundo, (0, 0))    
     # botao que define a pausa (por enquanto voltando para o menu)
     pausa = False
-    
+    # carrega música
+    musica_principal = pygame.mixer.Sound('sound/musica_principal.ogg')
+    musica_principal.set_volume(volume.volume_musica)
     while True:
         window.blit(player.walking_frames_r[0], (player.pos_x, player.pos_y))
         if pausa == True:
             break
+        
+        # começa a tocar a música e define o volume.
+        musica_principal.play(-1)
+        
+        pygame.mouse.set_visible(False)
+        window.blit(player.walking_frames_r[0], (player.pos_x, player.pos_y))
+        
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 sys.exit()
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_ESCAPE:
+                    musica_principal.stop()
                     pausa = True
                 elif event.key == pygame.K_LEFT:
                     player.esquerda()
