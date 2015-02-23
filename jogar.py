@@ -27,9 +27,9 @@ class Nivel2():
     bg = "pessoasbugadas.jpg"
     platforms = [[0,0,0]]
     buracos = []
-		
         
-nivel = Nivel1()	
+        
+nivel = Nivel1()    
     
 def jogar():
     window = pygame.display.set_mode((800, 600)) 
@@ -73,6 +73,6 @@ def jogar():
                 elif event.key == pygame.K_UP:
                     player.pular()
                 elif event.key == pygame.K_SPACE:
-					player.pular_direita()
+                    player.pular_direita()
                 
         pygame.display.update()
