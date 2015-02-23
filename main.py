@@ -9,6 +9,7 @@ import pygame, sys, jogar
 pygame.init()
 pygame.display.set_caption('UFCG: the journey!')
 window = pygame.display.set_mode((800, 600))
+
 # variaveis relacionadas o menu
 white = (255, 255, 255)
 menu = 0
@@ -28,7 +29,7 @@ while True:
     # menu inicial - 0 
     if menu == 0:
         window.blit(menu0, (0, 0))
-        
+     
         if 220 < mouse_pos_x < 440 and 160 < mouse_pos_y < 480:
             window.blit(menu0_select, (0, 0))
             if click:

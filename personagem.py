@@ -32,6 +32,13 @@ class Personagem():
     walking_frames_r.append(image)
     back_x = 0
     
+    def volta_inicio(self):
+		pygame.display.update()
+		time.sleep(0.5)
+		self.pos_x = 0 
+		self.pos_y = 450
+		self.back_x = 0
+		pygame.display.update()
     
     def mover_fundo(self, qntde):
 		self.window.blit(self.fundo, (self.back_x - 800, 0))
@@ -39,17 +46,20 @@ class Personagem():
 		self.back_x += qntde
 		
     def mover_personagem(self, qntde):
-        self.pos_x += qntde
-        self.window.blit(self.fundo, (self.back_x, 0))
-        self.window.blit(self.walking_frames_r[1], (self.pos_x, self.pos_y))
-        pygame.display.update()
-        time.sleep(0.06)
-        self.window.blit(self.fundo, (self.back_x, 0))
-        self.pos_x += qntde
-        self.window.blit(self.walking_frames_r[0], (self.pos_x, self.pos_y))
-        pygame.display.update()
+		self.pos_x += qntde
+		self.window.blit(self.fundo, (self.back_x, 0))
+		self.window.blit(self.walking_frames_r[1], (self.pos_x, self.pos_y))
+		pygame.display.update()
+		time.sleep(0.06)    
+		self.window.blit(self.fundo, (self.back_x, 0))
+		self.pos_x += qntde
+		self.gravidade()
+		self.window.blit(self.walking_frames_r[0], (self.pos_x, self.pos_y))
+		pygame.display.update()
             
     def direita(self):
+		if (self.bateu('d') == True):
+			return
 		if (self.pos_x <=  self.fundo.get_height()):
 			self.mover_fundo(-10)
 			self.mover_personagem(5)
@@ -62,23 +72,69 @@ class Personagem():
 		    pygame.display.update()
 
     def esquerda(self):
+		if (self.bateu('e') == True):
+			return
 		if (self.pos_x >= 0):
 		    self.mover_fundo(10)
 		    self.mover_personagem(-5)
 
-    def cima(self):
+    def pular(self):
         self.pos_y -= 100
         self.window.blit(self.fundo, (self.back_x, 0))
         pygame.display.update()
         self.window.blit(self.walking_frames_r[0], (self.pos_x, self.pos_y))
         pygame.display.update()
-        self.baixo()
+        self.gravidade()
         self.window.blit(self.walking_frames_r[0], (self.pos_x, self.pos_y))
         time.sleep(0.3)
         self.window.blit(self.fundo, (self.back_x, 0))
         pygame.display.update()
-
-
-    def baixo(self):
-        while self.pos_y != 450:
-            self.pos_y += 10
+        
+    def pular_direita(self):
+		self.pos_y -= 100
+		self.pos_x += 50
+		self.mover_fundo(-50)
+		self.window.blit(self.fundo, (self.back_x, 0))
+		pygame.display.update()
+		self.window.blit(self.walking_frames_r[0], (self.pos_x, self.pos_y))
+		pygame.display.update()
+		time.sleep(0.3)
+		self.gravidade()
+		self.window.blit(self.walking_frames_r[0], (self.pos_x, self.pos_y))
+		self.window.blit(self.fundo, (self.back_x, 0))
+		pygame.display.update()
+   
+    def bateu(self,lado):
+		#Mindica esquerda, verificando se há algo a esquerda
+		if (lado == 'e'):
+			for i in range(len(jogar.nivel.platforms)):
+				#Tarefa para Matteus, colocar cada expressão lógica dessas numa expressão menor para diminuir o tamanho dessa linha
+				if (((jogar.nivel.platforms[i][2] >= self.pos_x) and (jogar.nivel.platforms[i][1] <= self.pos_x)) and not(jogar.nivel.platforms[i][0] == self.pos_y) and not(jogar.nivel.platforms[i][0] >= self.pos_y)):
+					return True
+		else:
+			#Verificando se há algo a direita
+			for i in range(len(jogar.nivel.platforms)):
+				if (((self.pos_x -jogar.nivel.platforms[i][1] > -25) and (self.pos_x -jogar.nivel.platforms[i][1] < 0)) and not(jogar.nivel.platforms[i][0] == self.pos_y)and not(jogar.nivel.platforms[i][0] >= self.pos_y)):
+					return True
+		return False
+			
+   
+    def gravidade(self):
+		    aux = self.pos_y
+		    for i in range(len(jogar.nivel.platforms)):
+			   self.pos_y = aux
+			   while (self.pos_y != 450):
+				   print i, len(jogar.nivel.platforms), self.pos_y
+				   if((jogar.nivel.platforms[i][0] == self.pos_y) and ((jogar.nivel.platforms[i][1] <= self.pos_x) and (jogar.nivel.platforms[i][2] >= self.pos_x))): 
+				       return
+				   self.pos_y += 10
+		    print i
+		    self.pos_y = 450
+		    for i in range(len(jogar.nivel.buracos)):
+				if ((jogar.nivel.buracos[i][0] <= self.pos_x) and (jogar.nivel.buracos[i][1] >= self.pos_x)):
+					self.volta_inicio()
+					
+			
+	
+					    
+				    
