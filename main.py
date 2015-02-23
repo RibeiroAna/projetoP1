@@ -137,9 +137,6 @@ while True:
                         volume_musica = 0.01
                         jogar.volume.mudaVolumeMusica(0.01)
                         
-        
-        
-        
     # menu sair
     if menu == -1:
         window.blit(sair, (0, 0))
