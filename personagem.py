@@ -108,14 +108,20 @@ class Personagem():
         #Mindica esquerda, verificando se há algo a esquerda
         if (lado == 'e'):
             for i in range(len(jogar.nivel.platforms)):
-                #Tarefa para Matteus, colocar cada expressão lógica dessas numa expressão menor para diminuir o tamanho dessa linha
-                if (((jogar.nivel.platforms[i][2] >= self.pos_x) and (jogar.nivel.platforms[i][1] <= self.pos_x)) and not(jogar.nivel.platforms[i][0] == self.pos_y) and not(jogar.nivel.platforms[i][0] >= self.pos_y)):
-                    return True
+                if jogar.nivel.platforms[i][2] >= self.pos_x:
+                    if not(jogar.nivel.platforms[i][0] >= self.pos_y):
+                        if not(jogar.nivel.platforms[i][0] == self.pos_y):
+                            if jogar.nivel.platforms[i][1] <= self.pos_x:
+                                return True
         else:
             #Verificando se há algo a direita
             for i in range(len(jogar.nivel.platforms)):
-                if (((self.pos_x -jogar.nivel.platforms[i][1] > -25) and (self.pos_x -jogar.nivel.platforms[i][1] < 0)) and not(jogar.nivel.platforms[i][0] == self.pos_y)and not(jogar.nivel.platforms[i][0] >= self.pos_y)):
-                    return True
+                if (self.pos_x -jogar.nivel.platforms[i][1] > -25):
+                    if not(jogar.nivel.platforms[i][0] >= self.pos_y):
+                        if not(jogar.nivel.platforms[i][0] >= self.pos_y):
+                            if not(jogar.nivel.platforms[i][0] == self.pos_y):
+                                if (self.pos_x -jogar.nivel.platforms[i][1] < 0):
+                                    return True
         return False
         
    
