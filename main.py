@@ -55,6 +55,7 @@ while True:
                 window.blit(select, (543, 358))
                 if click:
                     somDeClick.play()
+                    click = False
                     jogar.jogar()
             # Captura mouse - botao opcoes
             elif 433 < mouse_pos_y < 478:
