@@ -24,11 +24,14 @@ volume_0 = pygame.image.load('img/menu/volume_0.png')
 volume_1 = pygame.image.load('img/menu/volume_1.png')
 volume_2 = pygame.image.load('img/menu/volume_2.png')
 volume_3 = pygame.image.load('img/menu/volume_3.png')
+tela_janela = pygame.image.load("img/menu/tela_janela.png") 
+tela_cheia = pygame.image.load("img/menu/tela_cheia.png")
 
 # sons
 #somDeClick = pygame.mixer.Sound('sound/click.wav')
 volume_musica = 0.03
 volume_efeitos = 1.
+tela_full = False
 
 while True:
     somDeClick = pygame.mixer.Sound('sound/click.wav')
@@ -59,7 +62,7 @@ while True:
                 if click:
                     somDeClick.play()
                     click = False
-                    jogar.jogar()
+                    jogar.jogar(window)
             # Captura mouse - botao opcoes
             elif 433 < mouse_pos_y < 478:
                 window.blit(select, (543, 443))
@@ -71,8 +74,9 @@ while True:
                 window.blit(select, (543, 533))
                 if click:
                     somDeClick.play()
+                    
+        # Captura mouse - botao sair
         elif 517 < mouse_pos_y < 560:
-            # Captura mouse - botao sair
             if 192 < mouse_pos_x < 314:
                 window.blit(select, (147, 533))
                 if click:
@@ -82,11 +86,31 @@ while True:
     # menu opções
     if menu == 2:
         window.blit(opcoes, (0, 0))
+        if not tela_full:
+            window.blit(tela_janela, (320, 350))
+        else:
+            window.blit(tela_cheia, (320, 350))
         
         if 40 < mouse_pos_x < 110 and 30 < mouse_pos_y < 80:
             if click:
                 somDeClick.play()
                 menu = 1
+        # Controle de tela cheia/janela
+        if 350 < mouse_pos_y < 400:
+            if 410 < mouse_pos_x < 480 and tela_full:
+                # telafull
+                if click:
+                    somDeClick.play()
+                    pygame.display.toggle_fullscreen()
+                    tela_full = False
+                
+            if 320 < mouse_pos_x < 390 and not tela_full:
+                #telajanela
+                if click:
+                    somDeClick.play()
+                    pygame.display.toggle_fullscreen()
+                    tela_full = True
+        
         # blocos de controle volume dos efeitos
         if volume_efeitos == 1.:
             window.blit(volume_3, (70, 320))

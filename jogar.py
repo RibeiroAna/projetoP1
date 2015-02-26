@@ -31,14 +31,11 @@ class Nivel2():
     platforms = [[0,0,0]]
     buracos = []
         
-        
 nivel = Nivel1()    
     
-def jogar():
-    window = pygame.display.set_mode((800, 600)) 
-    pygame.init()
+def jogar(window_pric):
+    window = window_pric
     player = personagem.Personagem()
-    pygame.init()
     fundo = pygame.image.load(nivel.bg)
     
     #O segundo parâmetro da função define o delay das teclas.
