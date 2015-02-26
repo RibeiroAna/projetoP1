@@ -31,6 +31,19 @@ class Personagem():
     image = sprite_sheet.get_image(132, 0, 67, 90)
     walking_frames_r.append(image)
     back_x = 0
+    vida = 3
+    
+    def perdeVida(self):
+        self.vida -= 1
+    
+    def blitarVida(self, window):
+        if self.vida == 3:
+            self.window.blit(pygame.image.load("img/personagem/vida_3.png"), (0, 0))
+        elif self.vida == 2:
+            self.window.blit(pygame.image.load("img/personagem/vida_2.png"), (0, 0))
+        elif self.vida == 1:
+            self.window.blit(pygame.image.load("img/personagem/vida_1.png",) (0, 0))
+            
     
     def volta_inicio(self):
         pygame.display.update()
@@ -42,19 +55,20 @@ class Personagem():
     
     def mover_fundo(self, qntde):
         self.window.blit(self.fundo, (self.back_x - 800, 0))
-        self.window.blit(self.fundo, (self.back_x, 0))
         self.back_x += qntde
         
     def mover_personagem(self, qntde):
         self.pos_x += qntde
         self.window.blit(self.fundo, (self.back_x, 0))
         self.window.blit(self.walking_frames_r[1], (self.pos_x, self.pos_y))
+        self.blitarVida(self.window)
         pygame.display.update()
         time.sleep(0.06)    
         self.window.blit(self.fundo, (self.back_x, 0))
         self.pos_x += qntde
         self.gravidade()
         self.window.blit(self.walking_frames_r[0], (self.pos_x, self.pos_y))
+        self.blitarVida(self.window)
         pygame.display.update()
             
     def direita(self):
@@ -81,13 +95,16 @@ class Personagem():
     def pular(self):
         self.pos_y -= 100
         self.window.blit(self.fundo, (self.back_x, 0))
+        self.blitarVida(self.window)
         pygame.display.update()
         self.window.blit(self.walking_frames_r[0], (self.pos_x, self.pos_y))
+        self.blitarVida(self.window)
         pygame.display.update()
         self.gravidade()
         self.window.blit(self.walking_frames_r[0], (self.pos_x, self.pos_y))
         time.sleep(0.3)
         self.window.blit(self.fundo, (self.back_x, 0))
+        self.blitarVida(self.window)
         pygame.display.update()
         
     def pular_direita(self):
@@ -95,12 +112,15 @@ class Personagem():
         self.pos_x += 50
         self.mover_fundo(-50)
         self.window.blit(self.fundo, (self.back_x, 0))
+        self.blitarVida(self.window)
         pygame.display.update()
         self.window.blit(self.walking_frames_r[0], (self.pos_x, self.pos_y))
+        self.blitarVida(self.window)
         pygame.display.update()
         time.sleep(0.3)
         self.gravidade()
         self.window.blit(self.walking_frames_r[0], (self.pos_x, self.pos_y))
+        self.blitarVida(self.window)
         self.window.blit(self.fundo, (self.back_x, 0))
         pygame.display.update()
         

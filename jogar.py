@@ -50,6 +50,7 @@ def jogar():
     musica_principal.set_volume(volume.volume_musica)
     while True:
         window.blit(player.walking_frames_r[0], (player.pos_x, player.pos_y))
+        player.blitarVida(window)
         if pausa == True:
             break
         
