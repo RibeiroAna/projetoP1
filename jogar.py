@@ -8,8 +8,11 @@ import pygame, sys, time, personagem
 
 class Volume:
     volume_musica = 0.03
+    volume_efeitos = 1.
     def mudaVolumeMusica(self, valor):
         self.volume_musica = valor
+    def mudaVolumeEfeitos(self, valor):
+        self.volume_efeitos = valor
 
 volume = Volume()
  

@@ -26,10 +26,13 @@ volume_2 = pygame.image.load('img/menu/volume_2.png')
 volume_3 = pygame.image.load('img/menu/volume_3.png')
 
 # sons
-somDeClick = pygame.mixer.Sound('sound/click.wav')
+#somDeClick = pygame.mixer.Sound('sound/click.wav')
 volume_musica = 0.03
+volume_efeitos = 1.
 
 while True:
+    somDeClick = pygame.mixer.Sound('sound/click.wav')
+    somDeClick.set_volume(jogar.volume.volume_efeitos)
     # variaveis do mouse
     pygame.mouse.set_visible(True)
     #click = pygame.mouse.get_pressed()[0]
@@ -84,7 +87,58 @@ while True:
             if click:
                 somDeClick.play()
                 menu = 1
-        
+        # blocos de controle volume dos efeitos
+        if volume_efeitos == 1.:
+            window.blit(volume_3, (70, 320))
+            if 420 < mouse_pos_y < 470:
+                if 70 < mouse_pos_x < 140:
+                    if click:
+                        somDeClick.play()
+                        volume_efeitos = 0.7
+                        jogar.volume.mudaVolumeEfeitos(0.7)
+                if 250 < mouse_pos_x < 310:
+                    if click:
+                        somDeClick.play()
+                        
+        elif volume_efeitos == 0.7:
+            window.blit(volume_2, (70, 320))
+            if 420 < mouse_pos_y < 470:
+                if 70 < mouse_pos_x < 140:
+                    if click:
+                        somDeClick.play()
+                        volume_efeitos = 0.3
+                        jogar.volume.mudaVolumeEfeitos(0.3)
+                if 250 < mouse_pos_x < 310:
+                    if click:
+                        somDeClick.play()
+                        volume_efeitos = 1.
+                        jogar.volume.mudaVolumeEfeitos(1.)
+                        
+        elif volume_efeitos == 0.3:
+            window.blit(volume_1, (70, 320))
+            if 420 < mouse_pos_y < 470:
+                if 70 < mouse_pos_x < 140:
+                    if click:
+                        volume_efeitos = 0.
+                        jogar.volume.mudaVolumeEfeitos(0.)
+                if 250 < mouse_pos_x < 310:
+                    if click:
+                        somDeClick.play()
+                        volume_efeitos = 0.7
+                        jogar.volume.mudaVolumeEfeitos(0.7) 
+                        
+        elif volume_efeitos == 0.:
+            window.blit(volume_0, (70, 320))
+            if 420 < mouse_pos_y < 470:
+                if 70 < mouse_pos_x < 140:
+                    if click:
+                        somDeClick.play()
+                if 250 < mouse_pos_x < 310:
+                    if click:
+                        somDeClick.play()
+                        volume_efeitos = 0.3
+                        jogar.volume.mudaVolumeEfeitos(0.3)
+                        
         # blocos de controle do volume da música
         if volume_musica == 0.05:
             window.blit(volume_3, (490, 320))
