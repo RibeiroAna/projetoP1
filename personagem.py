@@ -51,9 +51,11 @@ class Personagem():
         self.window.blit(self.fundo, (self.back_x, 0))
         self.window.blit(self.vida_imagem, (0, 0))
         self.window.blit(self.personagem_imagem, (self.pos_x, self.pos_y))
+        for inimigo in jogar.nivel.inimigos:
+			self.window.blit(inimigo.img, (inimigo.pos_x, inimigo.pos_y))
         pygame.display.update()
     
-    def volta_inicio(self):
+    def perder(self):
         self.perdeVida()
         time.sleep(0.5)
         self.pos_x = 0 
@@ -99,6 +101,10 @@ class Personagem():
     def pular(self):
         for i in range(10):
             self.pos_y -= 10
+            for inimigo in jogar.nivel.inimigos:
+                inimigo.andar(self.window)
+                if ((inimigo.pos_y == self.pos_y) and (self.pos_x == inimigo.pos_x)):
+					self.perder()
             self.atualizar_tela()
         self.gravidade()
             
@@ -108,6 +114,10 @@ class Personagem():
         for i in range(5):
            self.pos_y -= 20
            self.pos_x += 10
+           for inimigo in jogar.nivel.inimigos:
+                inimigo.andar(self.window)
+                if ((inimigo.pos_y == self.pos_y) and (self.pos_x == inimigo.pos_x)):
+					self.perder()
            self.atualizar_tela()
         self.mover_fundo(-50)
         self.gravidade()
@@ -143,7 +153,6 @@ class Personagem():
                     aux = self.pos_y
                     self.pos_y = aux2
                     while self.pos_y != aux:
-                        print aux, self.pos_y
                         self.pos_y += 10
                         self.atualizar_tela()
                     return
@@ -154,4 +163,4 @@ class Personagem():
                         self.atualizar_tela()
         for i in range(len(jogar.nivel.buracos)):
             if ((jogar.nivel.buracos[i][0] <= self.pos_x) and (jogar.nivel.buracos[i][1] >= self.pos_x)):
-                self.volta_inicio()
+                self.perder()

@@ -4,7 +4,7 @@
 # comandos do teclado.                                   #
 #     Ana Ribeiro e Matteus Silva, fevereiro de 2015     #   
 
-import pygame, sys, time, personagem
+import pygame, sys, time, personagem, inimigo
 
 class Volume:
     volume_musica = 0.03
@@ -24,6 +24,15 @@ class Nivel1():
     platforms = [[390, 25, 90, 450], [390, 125, 190, 450], [320, 200, 255, 390], [390, 255, 370, 450], [320, 380, 410, 390], [260, 420, 470, 280], [390, 500, 700, 450]]
     #Esta matriz representa os buracos, onde [x1, x2], indicando onde começa e termina tais ítens
     buracos = [[90, 200], [410, 500]]
+    #Esta matriz representa os inimigos
+    mosca = inimigo.Mosca()
+    mosca.def_x_y_dir(0, 320, -0.5)
+    mosca1 = inimigo.Mosca()
+    mosca1.def_x_y_dir(300, 390, 0.5)
+    mosca2 = inimigo.Mosca()
+    mosca2.def_x_y_dir(500, 260, -0.5)
+    inimigos = [mosca1, mosca2, mosca]
+    
 
 class Nivel2():
     #fundo provisório =P =V
@@ -32,10 +41,10 @@ class Nivel2():
     buracos = []
         
 nivel = Nivel1()    
+player = personagem.Personagem()
     
 def jogar(window_pric):
     window = window_pric
-    player = personagem.Personagem()
     fundo = pygame.image.load(nivel.bg)
     
     #O segundo parâmetro da função define o delay das teclas.
@@ -50,11 +59,13 @@ def jogar(window_pric):
     musica_principal.set_volume(volume.volume_musica)
     while True:
         player.atualizar_tela()
+        for inimigo in nivel.inimigos:
+			inimigo.andar(window)
         if pausa == True:
             break
         
         # começa a tocar a música e define o volume.
-        musica_principal.play(-1)
+        #musica_principal.play(-1)
         
         pygame.mouse.set_visible(False)
         window.blit(player.walking_frames_r[0], (player.pos_x, player.pos_y))
