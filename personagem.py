@@ -97,21 +97,20 @@ class Personagem():
             self.mover_personagem(-5)
 
     def pular(self):
-        self.pos_y -= 100
-        self.atualizar_tela()
+        for i in range(10):
+            self.pos_y -= 10
+            self.atualizar_tela()
         self.gravidade()
-        self.atualizar_tela()
-        time.sleep(0.3)
-        self.atualizar_tela()
+            
 
         
     def pular_direita(self):
-        self.pos_y -= 100
-        self.pos_x += 50
+        for i in range(5):
+           self.pos_y -= 20
+           self.pos_x += 10
+           self.atualizar_tela()
         self.mover_fundo(-50)
-        time.sleep(0.3)
         self.gravidade()
-        self.atualizar_tela()
         
     def bateu(self,lado):
         #Mindica esquerda, verificando se há algo a esquerda
@@ -139,12 +138,20 @@ class Personagem():
         for i in range(len(jogar.nivel.platforms)):
             self.pos_y = aux
             while (self.pos_y != 450):
-                print i, len(jogar.nivel.platforms), self.pos_y
                 if((jogar.nivel.platforms[i][0] == self.pos_y) and ((jogar.nivel.platforms[i][1] <= self.pos_x) and (jogar.nivel.platforms[i][2] >= self.pos_x))): 
+                    aux2 = aux
+                    aux = self.pos_y
+                    self.pos_y = aux2
+                    while self.pos_y != aux:
+                        print aux, self.pos_y
+                        self.pos_y += 10
+                        self.atualizar_tela()
                     return
                 self.pos_y += 10
-        print i
-        self.pos_y = 450
+        self.pos_y = aux 
+        while self.pos_y != 450:
+                        self.pos_y += 10
+                        self.atualizar_tela()
         for i in range(len(jogar.nivel.buracos)):
             if ((jogar.nivel.buracos[i][0] <= self.pos_x) and (jogar.nivel.buracos[i][1] >= self.pos_x)):
                 self.volta_inicio()
