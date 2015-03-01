@@ -57,6 +57,13 @@ class Personagem():
     
     def perder(self):
         self.perdeVida()
+        for i in range(10):
+			self.pos_y -= 10
+        self.personagem_imagem = pygame.image.load("img/personagem/p1_hurt.png")
+        while self.pos_y != 450:
+                        self.pos_y += 10
+                        self.atualizar_tela()
+        self.personagem_imagem = self.walking_frames_r[0]
         time.sleep(0.5)
         self.pos_x = 0 
         self.pos_y = 450
