@@ -65,7 +65,7 @@ def jogar(window_pric):
             break
         
         # começa a tocar a música e define o volume.
-        #musica_principal.play(-1)
+        musica_principal.play(-1)
         
         pygame.mouse.set_visible(False)
         window.blit(player.walking_frames_r[0], (player.pos_x, player.pos_y))

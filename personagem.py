@@ -78,6 +78,8 @@ class Personagem():
         self.pos_x += qntde
         self.personagem_imagem = self.walking_frames_r[1]
         self.atualizar_tela()
+        for inimigo in jogar.nivel.inimigos:
+			inimigo.andar(self.window)
         time.sleep(0.06) 
         self.pos_x += qntde
         self.gravidade()
@@ -110,8 +112,6 @@ class Personagem():
             self.pos_y -= 10
             for inimigo in jogar.nivel.inimigos:
                 inimigo.andar(self.window)
-                if ((inimigo.pos_y == self.pos_y) and (self.pos_x == inimigo.pos_x)):
-					self.perder()
             self.atualizar_tela()
         self.gravidade()
             
@@ -123,8 +123,6 @@ class Personagem():
            self.pos_x += 10
            for inimigo in jogar.nivel.inimigos:
                 inimigo.andar(self.window)
-                if ((inimigo.pos_y == self.pos_y) and (self.pos_x == inimigo.pos_x)):
-					self.perder()
            self.atualizar_tela()
         self.mover_fundo(-50)
         self.gravidade()
@@ -170,4 +168,5 @@ class Personagem():
                         self.atualizar_tela()
         for i in range(len(jogar.nivel.buracos)):
             if ((jogar.nivel.buracos[i][0] <= self.pos_x) and (jogar.nivel.buracos[i][1] >= self.pos_x)):
+                print "morri por buraco"
                 self.perder()
