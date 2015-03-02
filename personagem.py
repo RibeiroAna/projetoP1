@@ -36,6 +36,9 @@ class Personagem():
     vida_imagem = pygame.image.load("img/personagem/vida_3.png")
     vida_imagem.set_colorkey(0, 0)
     
+    def _init_(self):
+        pos_y = self.gravidade()
+    
     def perdeVida(self):
         self.vida -= 1
         if self.vida == 2:
@@ -64,10 +67,11 @@ class Personagem():
                         self.pos_y += 10
                         self.atualizar_tela()
         self.personagem_imagem = self.walking_frames_r[0]
+        self.pos_y = 0
         time.sleep(0.5)
-        self.pos_x = 0 
-        self.pos_y = 450
+        self.pos_x = 1
         self.back_x = 0
+        self.gravidade() 
         pygame.display.update()
     
     def mover_fundo(self, qntde):
@@ -96,6 +100,7 @@ class Personagem():
             self.nivel = 2
             jogar.nivel = jogar.Nivel2()
             self.pos_x = 0
+            self.pos_y = 360
             self.back_x = 0
             self.fundo = pygame.image.load(jogar.Nivel2.bg)
             pygame.display.update()
@@ -149,6 +154,7 @@ class Personagem():
         
    
     def gravidade(self):
+        print self.pos_x, self.pos_y
         aux = self.pos_y
         for i in range(len(jogar.nivel.platforms)):
             self.pos_y = aux
@@ -157,6 +163,7 @@ class Personagem():
                     aux2 = aux
                     aux = self.pos_y
                     self.pos_y = aux2
+                    print self.pos_y
                     while self.pos_y != aux:
                         self.pos_y += 10
                         self.atualizar_tela()

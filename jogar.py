@@ -35,10 +35,10 @@ class Nivel1():
     
 
 class Nivel2():
-    #fundo provisório =P =V
-    bg = "pessoasbugadas.jpg"
-    platforms = [[0,0,0]]
-    buracos = []
+    bg = "img/laguinho.png"
+    platforms = [[360, 0, 50, 450], [360, 90, 120, 450], [360, 160, 200, 450], [290, 200, 240, 360], [220, 270, 370, 360], [290, 400, 440, 450], [220, 470, 510, 450], [360, 540, 580, 450]]
+    buracos = [[50, 540]]
+    inimigos = []
         
 nivel = Nivel1()    
 player = personagem.Personagem()
