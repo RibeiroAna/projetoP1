@@ -60,7 +60,7 @@ def jogar(window_pric):
     while True:
         player.atualizar_tela()
         for inimigo in nivel.inimigos:
-			inimigo.andar(window)
+            inimigo.andar(window)
         if pausa == True:
             break
         
@@ -77,13 +77,13 @@ def jogar(window_pric):
                 if event.key == pygame.K_ESCAPE:
                     musica_principal.stop()
                     pausa = True
-                elif event.key == pygame.K_LEFT:
+                if event.key == pygame.K_LEFT:
                     player.esquerda()
-                elif event.key == pygame.K_RIGHT:
+                if event.key == pygame.K_RIGHT:
                     player.direita()
-                elif event.key == pygame.K_UP:
+                if event.key == pygame.K_UP:
                     player.pular()
-                elif event.key == pygame.K_SPACE:
+                if event.key == pygame.K_SPACE:
                     player.pular_direita()
                 
         pygame.display.update()
