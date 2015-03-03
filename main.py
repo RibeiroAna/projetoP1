@@ -61,6 +61,12 @@ while True:
                 if click:
                     somDeClick.play()
                     click = False
+                    jogar.player.pos_x = 0
+                    jogar.player.pos_y = 450
+                    jogar.player.back_x = 0
+                    jogar.player.vida = 3
+                    jogar.player.fundo = pygame.image.load("img/sayonara.png")
+                    jogar.player.vida_imagem = pygame.image.load("img/personagem/vida_3.png")
                     jogar.jogar(window)
             # Captura mouse - botao opcoes
             elif 433 < mouse_pos_y < 478:
