@@ -56,10 +56,11 @@ while True:
     # preFase1
     if menu == 3:
         window.blit(preFase1, (0, 0))
-        if click:
-            somDeClick.play()
-            click = False
-            menu = 4
+        if 540 < mouse_pos_x < 610 and 350 < mouse_pos_y < 400:
+            if click:
+                somDeClick.play()
+                click = False
+                menu = 4
     
     # missao1
     if menu == 4:
