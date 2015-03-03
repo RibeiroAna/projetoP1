@@ -38,7 +38,13 @@ class Nivel2():
     bg = "img/laguinho.png"
     platforms = [[360, 0, 50, 450], [360, 90, 120, 450], [360, 160, 200, 450], [290, 200, 240, 360], [220, 270, 370, 360], [290, 400, 440, 450], [220, 470, 510, 450], [360, 540, 580, 450]]
     buracos = [[50, 540]]
-    inimigos = []
+    peixe = inimigo.Peixe()
+    peixe.def_x_y_dirp(300, 570, -0.5)
+    peixe1 = inimigo.Peixe()
+    peixe1.def_x_y_dirp(500, 400, 1.)
+    peixe2 = inimigo.Peixe()
+    peixe2.def_x_y_dirp(175, 100, -0.75)
+    inimigos = [peixe, peixe1, peixe2]
         
 nivel = Nivel1()    
 player = personagem.Personagem()
