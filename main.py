@@ -26,6 +26,8 @@ volume_2 = pygame.image.load('img/menu/volume_2.png')
 volume_3 = pygame.image.load('img/menu/volume_3.png')
 tela_janela = pygame.image.load("img/menu/tela_janela.png") 
 tela_cheia = pygame.image.load("img/menu/tela_cheia.png")
+preFase1 = pygame.image.load('img/preFase1.png')
+missao1 = pygame.image.load('img/missao1.png')
 
 # sons
 volume_musica = 0.03
@@ -51,6 +53,23 @@ while True:
                 somDeClick.play()
                 menu += 1
     
+    # preFase1
+    if menu == 3:
+        window.blit(preFase1, (0, 0))
+        if click:
+            somDeClick.play()
+            click = False
+            menu = 4
+    
+    # missao1
+    if menu == 4:
+        window.blit(missao1, (0, 0))
+        if click:
+            somDeClick.play()
+            click = False
+            menu = 1
+            jogar.jogar(window)
+    
     # menu principal
     if menu == 1:
         window.blit(menu1, (0, 0))
@@ -67,7 +86,7 @@ while True:
                     jogar.player.vida = 3
                     jogar.player.fundo = pygame.image.load("img/sayonara.png")
                     jogar.player.vida_imagem = pygame.image.load("img/personagem/vida_3.png")
-                    jogar.jogar(window)
+                    menu = 3
             # Captura mouse - botao opcoes
             elif 433 < mouse_pos_y < 478:
                 window.blit(select, (543, 443))
