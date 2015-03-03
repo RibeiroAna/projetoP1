@@ -35,7 +35,7 @@ class Mosca():
         Inimigo().colidir_inimigo(self.pos_x, self.pos_y)
     
 class Peixe():
-    img = pygame.image.load('peixe.png')
+    img = pygame.image.load('img/inimigos/peixe.png')
     pos_x = 0
     pos_y = 0
     direcao = 0
@@ -43,7 +43,7 @@ class Peixe():
     def def_x_y_dirp(self, pos_x, pos_y, direcao):
         self.pos_x = pos_x
         self.pos_y = pos_y
-        self.img = pygame.image.load('peixe.png')
+        self.img = pygame.image.load('img/inimigos/peixe.png')
         self.direcao = direcao
     
     def andar(self, window):
