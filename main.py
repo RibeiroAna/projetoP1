@@ -28,7 +28,6 @@ tela_janela = pygame.image.load("img/menu/tela_janela.png")
 tela_cheia = pygame.image.load("img/menu/tela_cheia.png")
 
 # sons
-#somDeClick = pygame.mixer.Sound('sound/click.wav')
 volume_musica = 0.03
 volume_efeitos = 1.
 tela_full = False
