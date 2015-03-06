@@ -10,7 +10,7 @@ import pygame, personagem, jogar, time
 class Inimigo():
       def colidir_inimigo(self, pos_x, pos_y):
          if ((pos_x >= jogar.player.pos_x - 55) and(pos_x <= jogar.player.pos_x + 55)   and (pos_y <= jogar.player.pos_y + 100) and (pos_y >= jogar.player.pos_y) ):
-             print "morri por mosca"
+
              jogar.player.perder()
 
 class Mosca():

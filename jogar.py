@@ -15,9 +15,42 @@ class Volume:
         self.volume_efeitos = valor
 
 volume = Volume()
+pygame.mixer.init()
+somDeClick = pygame.mixer.Sound('sound/click.wav')
+somDeClick.set_volume(volume.volume_efeitos)
+
+def preNivel(window):
+    click = False
+    telas = 1
+    while True:
+        #Pre fase
+        if telas == 1:
+           window.blit(pygame.image.load(nivel.preFase), (0, 0))
+           pygame.display.update()
+           
+        if click and telas == 2:
+            return
+        if click:
+            print click, telas
+            telas = 2
+            #Missão
+            window.blit(pygame.image.load(nivel.missao), (0, 0))
+            pygame.display.update()
+            click = False
+        
+        for event in pygame.event.get():
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                click = True
+                time.sleep(0.2)
+            if event.type == pygame.QUIT:
+                sys.exit()
+            
+    
  
 #Provavelmente estes níveis irão para outro arquivo, mas provisiorialmente, aqui
 class Nivel1():
+    preFase = "img/preFase1.png"
+    missao = "img/missao1.png"
     bg = "img/sayonara.png"
     #A matriz representa o local dos blocos, a ordem é [y1, x1, x2, y2], por que é nessa ordem?
     #como diria Joseana, porque sim, foi a "equipe" de "engenheiros" que projetou que quiz assim
@@ -36,6 +69,8 @@ class Nivel1():
 
 class Nivel2():
     bg = "img/laguinho.png"
+    preFase = "img/preFase2.png"
+    missao = "img/missao2.png"
     platforms = [[360, 0, 50, 450], [360, 90, 120, 450], [360, 160, 200, 450], [290, 200, 240, 360], [220, 270, 370, 360], [290, 400, 440, 450], [220, 470, 510, 450], [360, 540, 580, 450]]
     buracos = [[50, 540]]
     peixe = inimigo.Peixe()
@@ -51,6 +86,7 @@ player = personagem.Personagem()
     
 def jogar(window_pric):
     window = window_pric
+    preNivel(window)
     fundo = pygame.image.load(nivel.bg)
     
     #O segundo parâmetro da função define o delay das teclas.
@@ -69,11 +105,11 @@ def jogar(window_pric):
             inimigo.andar(window)
         if pausa == True:
             break
-        
+        if player.vida == 0:
+            break
         # começa a tocar a música e define o volume.
         musica_principal.play(-1)
         
-        pygame.mouse.set_visible(False)
         window.blit(player.walking_frames_r[0], (player.pos_x, player.pos_y))
         
         for event in pygame.event.get():

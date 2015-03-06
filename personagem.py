@@ -46,8 +46,17 @@ class Personagem():
         elif self.vida == 1:
             self.vida_imagem = pygame.image.load("img/personagem/vida_1.png")
         elif self.vida == 0:
-            #Tela de derrota provisoriaa
-            self.vida_imagem = pygame.image.load("pessoasbugadas.jpg")
+            while True:
+                derrota = pygame.image.load("img/game_over.png")
+                self.window.blit(derrota, (0, 0))
+                pygame.display.update()
+                for event in pygame.event.get():
+                    if event.type == pygame.MOUSEBUTTONDOWN:
+                        click = True
+                        time.sleep(0.2)
+                        return
+                    if event.type == pygame.QUIT:
+                        sys.exit()
         self.vida_imagem.set_colorkey(0, 0)
             
     def atualizar_tela(self):
@@ -55,13 +64,15 @@ class Personagem():
         self.window.blit(self.vida_imagem, (0, 0))
         self.window.blit(self.personagem_imagem, (self.pos_x, self.pos_y))
         for inimigo in jogar.nivel.inimigos:
-			self.window.blit(inimigo.img, (inimigo.pos_x, inimigo.pos_y))
+            self.window.blit(inimigo.img, (inimigo.pos_x, inimigo.pos_y))
         pygame.display.update()
     
     def perder(self):
         self.perdeVida()
+        if self.vida == 0:
+			return
         for i in range(10):
-			self.pos_y -= 10
+            self.pos_y -= 10
         self.personagem_imagem = pygame.image.load("img/personagem/p1_hurt.png")
         while self.pos_y != 450:
                         self.pos_y += 10
@@ -83,7 +94,7 @@ class Personagem():
         self.personagem_imagem = self.walking_frames_r[1]
         self.atualizar_tela()
         for inimigo in jogar.nivel.inimigos:
-			inimigo.andar(self.window)
+            inimigo.andar(self.window)
         time.sleep(0.06) 
         self.pos_x += qntde
         self.gravidade()
@@ -99,6 +110,7 @@ class Personagem():
         elif (self.nivel == 1):
             self.nivel = 2
             jogar.nivel = jogar.Nivel2()
+            jogar.preNivel(self.window)
             self.pos_x = 0
             self.pos_y = 360
             self.back_x = 0
@@ -175,5 +187,4 @@ class Personagem():
                         self.atualizar_tela()
         for i in range(len(jogar.nivel.buracos)):
             if ((jogar.nivel.buracos[i][0] <= self.pos_x) and (jogar.nivel.buracos[i][1] >= self.pos_x)):
-                print "morri por buraco"
                 self.perder()
