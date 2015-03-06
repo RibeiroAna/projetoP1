@@ -62,6 +62,7 @@ while True:
                 if click:
                     somDeClick.play()
                     click = False
+                    jogar.player.nivel = jogar.Nivel1()
                     jogar.player.pos_x = 0
                     jogar.player.pos_y = 450
                     jogar.player.back_x = 0
