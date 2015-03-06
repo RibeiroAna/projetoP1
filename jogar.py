@@ -80,6 +80,15 @@ class Nivel2():
     peixe2 = inimigo.Peixe()
     peixe2.def_x_y_dirp(175, 100, -0.75)
     inimigos = [peixe, peixe1, peixe2]
+    
+class Nivel3():
+    bg = "img/spLab.png"
+    #Provisorios
+    preFase = "img/preFase2.png"
+    missao = "img/missao2.png"
+    platforms = []
+    buracos = []
+    inimigos = []
         
 nivel = Nivel1()    
 player = personagem.Personagem()

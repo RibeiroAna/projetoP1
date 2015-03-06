@@ -70,7 +70,7 @@ class Personagem():
     def perder(self):
         self.perdeVida()
         if self.vida == 0:
-			return
+            return
         for i in range(10):
             self.pos_y -= 10
         self.personagem_imagem = pygame.image.load("img/personagem/p1_hurt.png")
@@ -116,6 +116,31 @@ class Personagem():
             self.back_x = 0
             self.fundo = pygame.image.load(jogar.Nivel2.bg)
             pygame.display.update()
+        elif (self.nivel == 2):
+            self.nivel = 3
+            jogar.nivel = jogar.Nivel3()
+            jogar.preNivel(self.window)
+            self.pos_x = 0
+            self.pos_y = 450
+            self.back_x = 0
+            self.fundo = pygame.image.load(jogar.Nivel3.bg)
+            pygame.display.update()
+            
+        elif (self.nivel == 3):
+             self.vida = 0
+             while True:
+                vitoria = pygame.image.load("img/win.png")
+                self.window.blit(vitoria, (0, 0))
+                pygame.display.update()
+                for event in pygame.event.get():
+                    if event.type == pygame.MOUSEBUTTONDOWN:
+                        click = True
+                        time.sleep(0.2)
+                        return
+                    if event.type == pygame.QUIT:
+                        sys.exit()
+             
+            
 
     def esquerda(self):
         if (self.bateu('e') == True):
