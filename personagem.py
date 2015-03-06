@@ -19,11 +19,12 @@ class SpriteSheet(object):
 
 
 class Personagem():
+    gravidade_level = 450
     walking_frames_r = []
     fundo = pygame.image.load("img/sayonara.png")
     nivel = 1
     pos_x = 0 
-    pos_y = 450
+    pos_y = 400
     window = pygame.display.set_mode((800, 600))
     sprite_sheet = SpriteSheet("img/personagem/p1_walk.png")
     image = sprite_sheet.get_image(0, 0, 66, 90)
@@ -74,7 +75,7 @@ class Personagem():
         for i in range(10):
             self.pos_y -= 10
         self.personagem_imagem = pygame.image.load("img/personagem/p1_hurt.png")
-        while self.pos_y != 450:
+        while self.pos_y != self.gravidade_level:
                         self.pos_y += 10
                         self.atualizar_tela()
         self.personagem_imagem = self.walking_frames_r[0]
@@ -121,7 +122,8 @@ class Personagem():
             jogar.nivel = jogar.Nivel3()
             jogar.preNivel(self.window)
             self.pos_x = 0
-            self.pos_y = 450
+            self.pos_y = 400
+            self.gravidade_level = 400
             self.back_x = 0
             self.fundo = pygame.image.load(jogar.Nivel3.bg)
             pygame.display.update()
@@ -195,7 +197,7 @@ class Personagem():
         aux = self.pos_y
         for i in range(len(jogar.nivel.platforms)):
             self.pos_y = aux
-            while (self.pos_y != 450):
+            while (self.pos_y != self.gravidade_level):
                 if((jogar.nivel.platforms[i][0] == self.pos_y) and ((jogar.nivel.platforms[i][1] <= self.pos_x) and (jogar.nivel.platforms[i][2] >= self.pos_x))): 
                     aux2 = aux
                     aux = self.pos_y
@@ -207,7 +209,7 @@ class Personagem():
                     return
                 self.pos_y += 10
         self.pos_y = aux 
-        while self.pos_y != 450:
+        while self.pos_y != self.gravidade_level:
                         self.pos_y += 10
                         self.atualizar_tela()
         for i in range(len(jogar.nivel.buracos)):

@@ -84,10 +84,10 @@ class Nivel2():
 class Nivel3():
     bg = "img/spLab.png"
     #Provisorios
-    preFase = "img/preFase2.png"
-    missao = "img/missao2.png"
-    platforms = []
-    buracos = []
+    preFase = "img/preFase3.png"
+    missao = "img/missao3.png"
+    platforms = [[400, 0, 90, 450], [310, 90, 160, 450], [400, 190, 240, 400], ]
+    buracos = [[90,180]]
     inimigos = []
         
 nivel = Nivel1()    
