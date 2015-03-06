@@ -26,6 +26,7 @@ volume_2 = pygame.image.load('img/menu/volume_2.png')
 volume_3 = pygame.image.load('img/menu/volume_3.png')
 tela_janela = pygame.image.load("img/menu/tela_janela.png") 
 tela_cheia = pygame.image.load("img/menu/tela_cheia.png")
+creditos = pygame.image.load('img/menu/creditos.png')
 
 # sons
 volume_musica = 0.03
@@ -79,6 +80,7 @@ while True:
                 window.blit(select, (543, 533))
                 if click:
                     somDeClick.play()
+                    menu = 6
                     
         # Captura mouse - botao sair
         elif 517 < mouse_pos_y < 560:
@@ -87,6 +89,15 @@ while True:
                 if click:
                     somDeClick.play()
                     menu = -1
+    
+    # menu créditos
+    if menu == 6:
+        window.blit(creditos, (0, 0))
+        if 40 < mouse_pos_x < 110 and 30 < mouse_pos_y < 80:
+            if click:
+                somDeClick.play()
+                menu = 1
+        
     
     # menu opções
     if menu == 2:
@@ -235,7 +246,7 @@ while True:
             if click:
                 sys.exit()
     if menu == 5:
-		window.blit(derrota, (0, 0))
+        window.blit(derrota, (0, 0))
                     
     for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONDOWN:
@@ -245,6 +256,6 @@ while True:
             click = False
         if event.type == pygame.QUIT:
             sys.exit()
-		
+        
             
     pygame.display.update()
