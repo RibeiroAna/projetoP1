@@ -21,6 +21,7 @@ class SpriteSheet(object):
 class Personagem():
     gravidade_level = 450
     walking_frames_r = []
+    walking_frames_l = []
     fundo = pygame.image.load("img/sayonara.png")
     nivel = 1
     pos_x = 0 
@@ -31,9 +32,16 @@ class Personagem():
     walking_frames_r.append(image)
     image = sprite_sheet.get_image(132, 0, 67, 90)
     walking_frames_r.append(image)
+    image = sprite_sheet.get_image(0, 0, 66, 90)
+    image = pygame.transform.flip(image, True, False)
+    walking_frames_l.append(image)
+    image = sprite_sheet.get_image(132, 0, 67, 90)
+    image = pygame.transform.flip(image, True, False)
+    walking_frames_l.append(image)
+    walking_frames = walking_frames_r
     back_x = 0
     vida = 3
-    personagem_imagem = walking_frames_r[0]
+    personagem_imagem = walking_frames[0]
     vida_imagem = pygame.image.load("img/personagem/vida_3.png")
     vida_imagem.set_colorkey(0, 0)
     
@@ -78,7 +86,7 @@ class Personagem():
         while self.pos_y != self.gravidade_level:
                         self.pos_y += 10
                         self.atualizar_tela()
-        self.personagem_imagem = self.walking_frames_r[0]
+        self.personagem_imagem = self.walking_frames[0]
         self.pos_y = 0
         time.sleep(0.5)
         self.pos_x = 1
@@ -92,7 +100,7 @@ class Personagem():
         
     def mover_personagem(self, qntde):
         self.pos_x += qntde
-        self.personagem_imagem = self.walking_frames_r[1]
+        self.personagem_imagem = self.walking_frames[1]
         self.atualizar_tela()
         for inimigo in jogar.nivel.inimigos:
             inimigo.andar(self.window)
@@ -100,9 +108,10 @@ class Personagem():
         self.pos_x += qntde
         self.gravidade()
         self.atualizar_tela()
-        self.personagem_imagem = self.walking_frames_r[0]
+        self.personagem_imagem = self.walking_frames[0]
             
     def direita(self):
+        self.walking_frames = self.walking_frames_r
         if (self.bateu('d') == True):
             return
         if (self.pos_x <=  self.fundo.get_height()):
@@ -145,6 +154,7 @@ class Personagem():
             
 
     def esquerda(self):
+        self.walking_frames = self.walking_frames_l
         if (self.bateu('e') == True):
             return
         if (self.pos_x >= 0):
@@ -162,6 +172,7 @@ class Personagem():
 
         
     def pular_direita(self):
+        self.walking_frames = self.walking_frames_r
         for i in range(5):
            self.pos_y -= 20
            self.pos_x += 10

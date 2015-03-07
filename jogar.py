@@ -101,7 +101,7 @@ def jogar(window_pric):
     #O segundo parâmetro da função define o delay das teclas.
     pygame.key.set_repeat(10, 30) 
     
-    window.blit(player.walking_frames_r[0], (player.pos_x, player.pos_y))
+    window.blit(player.walking_frames[0], (player.pos_x, player.pos_y))
     window.blit(fundo, (0, 0))    
     # botao que define a pausa (por enquanto voltando para o menu)
     pausa = False
@@ -119,7 +119,7 @@ def jogar(window_pric):
         # começa a tocar a música e define o volume.
         musica_principal.play(-1)
         
-        window.blit(player.walking_frames_r[0], (player.pos_x, player.pos_y))
+        window.blit(player.walking_frames[0], (player.pos_x, player.pos_y))
         
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
