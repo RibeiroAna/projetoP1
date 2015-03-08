@@ -14,7 +14,9 @@ class Inimigo():
              jogar.player.perder()
 
 class Mosca():
-    img = pygame.image.load("img/inimigos/fly1.png")
+    img_l = pygame.image.load("img/inimigos/fly1.png")
+    img_r = pygame.transform.flip(img_l, True, False)
+    img = img_l
     pos_x = 0
     pos_y = 0
     direcao = 0
@@ -29,6 +31,9 @@ class Mosca():
         if ((self.pos_x <= 0) or (self.pos_x >= 800)):
             self.direcao = self.direcao*(-1)
         self.pos_x += self.direcao
+        if self.direcao < 0:
+            self.img = self.img_l
+        else: self.img = self.img_r
         Inimigo().colidir_inimigo(self.pos_x, self.pos_y)
         window.blit(self.img, (self.pos_x, self.pos_y))
         self.pos_x += self.direcao
