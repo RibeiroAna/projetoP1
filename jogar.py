@@ -136,5 +136,7 @@ def jogar(window_pric):
                     player.pular()
                 if event.key == pygame.K_SPACE:
                     player.pular_direita()
+                if event.key == pygame.K_c:
+                    player.pular_esquerda()
                 
         pygame.display.update()

@@ -181,6 +181,17 @@ class Personagem():
            self.atualizar_tela()
         self.mover_fundo(-50)
         self.gravidade()
+    
+    def pular_esquerda(self):
+        self.walking_frames = self.walking_frames_l
+        for i in xrange(5):
+            self.pos_y -= 20
+            self.pos_x -= 10
+            for inimigo in jogar.nivel.inimigos:
+                inimigo.andar(self.window)
+            self.atualizar_tela()
+        self.mover_fundo(50)
+        self.gravidade()
         
     def bateu(self,lado):
         #Mindica esquerda, verificando se há algo a esquerda
