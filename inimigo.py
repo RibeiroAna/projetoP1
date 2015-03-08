@@ -31,8 +31,7 @@ class Mosca():
         if ((self.pos_x <= 0) or (self.pos_x >= 800)):
             self.direcao = self.direcao*(-1)
         self.pos_x += self.direcao
-        if self.direcao < 0:
-            self.img = self.img_l
+        if self.direcao < 0: self.img = self.img_l
         else: self.img = self.img_r
         Inimigo().colidir_inimigo(self.pos_x, self.pos_y)
         window.blit(self.img, (self.pos_x, self.pos_y))
@@ -40,7 +39,9 @@ class Mosca():
         Inimigo().colidir_inimigo(self.pos_x, self.pos_y)
     
 class Peixe():
-    img = pygame.image.load('img/inimigos/peixe.png')
+    img_up = pygame.image.load('img/inimigos/peixe.png')
+    img_down = pygame.transform.flip(img_up, True, True)
+    img = img_up
     pos_x = 0
     pos_y = 0
     direcao = 0
@@ -54,6 +55,8 @@ class Peixe():
     def andar(self, window):
         if ((self.pos_y <= 0) or (self.pos_y >= 600)):
             self.direcao = self.direcao*(-1)
+        if self.direcao < 0: self.img = self.img_up
+        else: self.img = self.img_down
         self.pos_y += self.direcao
         Inimigo().colidir_inimigo(self.pos_x, self.pos_y)
         window.blit(self.img, (self.pos_x, self.pos_y))
