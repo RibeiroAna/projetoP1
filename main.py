@@ -68,6 +68,7 @@ while True:
                     jogar.player.pos_y = 450
                     jogar.player.back_x = 0
                     jogar.player.vida = 3
+                    jogar.nivel = jogar.Nivel1()
                     jogar.player.fundo = pygame.image.load("img/sayonara.png")
                     jogar.player.vida_imagem = pygame.image.load("img/personagem/vida_3.png")
                     jogar.jogar(window)

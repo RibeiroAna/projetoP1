@@ -23,7 +23,7 @@ class Personagem():
     walking_frames_r = []
     walking_frames_l = []
     fundo = pygame.image.load("img/sayonara.png")
-    nivel = 1
+    nivel = 3
     pos_x = 0 
     pos_y = 400
     window = pygame.display.set_mode((800, 600))

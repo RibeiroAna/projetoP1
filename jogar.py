@@ -86,11 +86,11 @@ class Nivel3():
     #Provisorios
     preFase = "img/preFase3.png"
     missao = "img/missao3.png"
-    platforms = [[400, 0, 90, 450], [310, 90, 160, 450], [400, 190, 240, 400], ]
-    buracos = [[90,180]]
+    platforms = [[400, 0, 90, 450], [310, 90, 160, 450], [400, 190, 330, 400], [310, 330, 375, 400], [240, 420, 440, 310], [310, 440, 470, 310], [400, 460, 1000, 400]]
+    buracos = [[90,180], [370,440]]
     inimigos = []
         
-nivel = Nivel1()    
+nivel = Nivel3()    
 player = personagem.Personagem()
     
 def jogar(window_pric):
