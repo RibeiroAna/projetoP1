@@ -14,7 +14,7 @@ class Inimigo():
     
     def colidir_ajudante(self, pos_x, pos_y):
         if ((pos_x >= jogar.player.pos_x - 55) and(pos_x <= jogar.player.pos_x + 55)   and (pos_y <= jogar.player.pos_y + 100) and (pos_y >= jogar.player.pos_y) ):
-            pass
+            jogar.player.tenho_chave = True
 
 class Mosca():
     img_l = pygame.image.load("img/inimigos/fly1.png")

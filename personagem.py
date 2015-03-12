@@ -44,6 +44,8 @@ class Personagem():
     personagem_imagem = walking_frames[0]
     vida_imagem = pygame.image.load("img/personagem/vida_3.png")
     vida_imagem.set_colorkey(0, 0)
+    tenho_chave = False
+    chave = pygame.image.load('img/personagem/chave.png')
     
     def _init_(self):
         pos_y = self.gravidade()
@@ -74,6 +76,8 @@ class Personagem():
         self.window.blit(self.personagem_imagem, (self.pos_x, self.pos_y))
         for inimigo in jogar.nivel.inimigos:
             self.window.blit(inimigo.img, (inimigo.pos_x, inimigo.pos_y))
+        if self.nivel == 3 and self.tenho_chave:
+            self.window.blit(self.chave, (165, -20))
         pygame.display.update()
     
     def perder(self):
