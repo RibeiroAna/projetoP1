@@ -86,9 +86,11 @@ class Nivel3():
     #Provisorios
     preFase = "img/preFase3.png"
     missao = "img/missao3.png"
-    platforms = [[400, 0, 90, 450], [310, 90, 160, 450], [400, 190, 330, 400], [310, 330, 375, 400], [240, 420, 440, 310], [310, 440, 470, 310], [400, 460, 1000, 400]]
+    platforms = [[400, 0, 90, 450], [310, 90, 160, 450], [400, 190, 330, 400], [310, 330, 375, 400], [240, 420, 440, 310], [310, 460, 470, 310], [400, 460, 1000, 400]]
     buracos = [[90,180], [370,440]]
-    inimigos = []
+    klaudio = inimigo.GuardaChave()
+    klaudio.def_x_y_dir(400, 400, -0.5)
+    inimigos = [klaudio]
         
 nivel = Nivel3()    
 player = personagem.Personagem()
