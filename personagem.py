@@ -77,7 +77,7 @@ class Personagem():
         for inimigo in jogar.nivel.inimigos:
             self.window.blit(inimigo.img, (inimigo.pos_x, inimigo.pos_y))
         if self.nivel == 3 and self.tenho_chave:
-            self.window.blit(self.chave, (165, -20))
+            self.window.blit(self.chave, (165, -10))
         pygame.display.update()
     
     def perder(self):
@@ -141,7 +141,7 @@ class Personagem():
             self.fundo = pygame.image.load(jogar.Nivel3.bg)
             pygame.display.update()
             
-        elif (self.nivel == 3):
+        elif (self.nivel == 3 and self.tenho_chave):
              self.vida = 0
              while True:
                 vitoria = pygame.image.load("img/win.png")
