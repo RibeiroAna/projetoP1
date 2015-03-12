@@ -80,7 +80,7 @@ class GuardaChave():
         self.direcao = direcao
     
     def andar(self, window):
-        if ((self.pos_x <= 0) or (self.pos_x >= 800)):
+        if ((self.pos_x <= 200) or (self.pos_x >= 500)):
             self.direcao = self.direcao*(-1)
         self.pos_x += self.direcao
         if self.direcao < 0: self.img = self.img_l

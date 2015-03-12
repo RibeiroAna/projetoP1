@@ -90,7 +90,13 @@ class Nivel3():
     buracos = [[90,180], [370,440]]
     klaudio = inimigo.GuardaChave()
     klaudio.def_x_y_dir(400, 400, -0.5)
-    inimigos = [klaudio]
+    mosca1 = inimigo.Mosca()
+    mosca1.def_x_y_dir(200, 250, 0.5)
+    mosca2 = inimigo.Mosca()
+    mosca2.def_x_y_dir(400, 340, -0.25)
+    mosca3 = inimigo.Mosca()
+    mosca3.def_x_y_dir(550, 450, 0.5)
+    inimigos = [klaudio, mosca1, mosca2, mosca3]
         
 nivel = Nivel3()    
 player = personagem.Personagem()
