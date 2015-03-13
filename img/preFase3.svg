@@ -8,10 +8,42 @@
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    version="1.1"
    width="800"
    height="600"
-   id="svg2">
+   id="svg2"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="preFase3.svg">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="744"
+     id="namedview55"
+     showgrid="true"
+     inkscape:zoom="1.0606602"
+     inkscape:cx="436.23694"
+     inkscape:cy="336.3133"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2">
+    <inkscape:grid
+       type="xygrid"
+       id="grid3032"
+       empspacing="5"
+       visible="true"
+       enabled="true"
+       snapvisiblegridlinesonly="true" />
+  </sodipodi:namedview>
   <defs
      id="defs4" />
   <metadata
@@ -22,7 +54,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -320,30 +352,20 @@
     <text
        x="400"
        y="552.36218"
-       id="text4056"
        xml:space="preserve"
-       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Purisa;-inkscape-font-specification:Purisa"><tspan
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Purisa;-inkscape-font-specification:Purisa"
+       sodipodi:linespacing="125%"
+       id="text3034"><tspan
          x="400"
          y="552.36218"
-         id="tspan4088"
-         style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;font-family:Purisa;-inkscape-font-specification:Purisa">Estamos quase lá!</tspan><tspan
-         x="400"
-         y="592.36218"
-         id="tspan3043"
-         style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;font-family:Purisa;-inkscape-font-specification:Purisa"> Para entrar no SPlab você terá</tspan><tspan
-         x="400"
-         y="632.36218"
-         id="tspan3045"
-         style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;font-family:Purisa;-inkscape-font-specification:Purisa">que pegar a chave que está com</tspan><tspan
-         x="400"
-         y="672.36218"
-         id="tspan3047"
-         style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;font-family:Purisa;-inkscape-font-specification:Purisa">o caracol!</tspan></text>
+         style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;font-family:Purisa;-inkscape-font-specification:Purisa"
+         id="tspan3036" /></text>
     <path
        d="m 0,250 c 230,40 160,110 160,110 l 340,-80 300,-30"
        transform="translate(0,452.36218)"
        id="path4117"
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       inkscape:connector-curvature="0" />
     <image
        xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAYAAABxLuKEAAAABHNCSVQICAgIfAhkiAAABDZJREFU eJzt2tF6ozgMBeBjA2na2RfdN9pXmgdqkwZs7wWRQsDGMsidmQ7ntsWW//KREsn8/O/fgCOL2F9d wO+aAyaRAyaRAyaRAyaRAyaRAyaRAyaRAyaRAyaRAyYRMUwIAcP1HX7oqxTibhe426XK2n7oMVzf EYL8tVAEE0KA+/wAgofvr+o47nZBcAOCG9Rx/NDD91cgeLjPDzFOFmaKwpsp4hAK76eIwyi8uBxn FSaGwpsq4MxReF8FnAUKLy7DScKsofDmO3BSKLz/DpwkCi+ex4nCSFC4iEKcEEIWhX/3jlPy0Myi 8OJ3HB8/4wImeCdG4WKEOAQuQeFr3CB+LohReHEP9/mO4N3iR/b598pRuKgMTslduLw4f+sXo0wy 3jnPOAzDKDuSwtmFwoukcfagUOY4dtxzPwpljqOCwostcTRQKFMcq4lCIRxVFMoERxOFQjitNgrF 91dgMEDBJ4o494dmlbUx4tR9iaxUePW1cbxdJ3PAJFIEY7sXwNSxNE0L07RV1oaxY+0FEZ/SdmfY 9oTm5U0dxzQtmtMrmtOrPo6xaF7eYNsTbHcWXyY64YjSjfsYo4pDKBRVnDuKMQYAYNtOjJM93RSF 91PCmaNQVHBmKBQpzurJYii8706cFAplF04ChSLBSZ5qDYX334iTQ6FswsmgUHI40ROND6t1FK6j EMd2ZxEK13J6lT80hShcS9uNtcd+tijk5Q3GNrJCqB4hjuQujF4neS4Uojwua6I4TyfZgsIbZHC2 ovD1azgbUR6XL3H4FHtQeIMEzl4UXieGsxPlscwzjgV0UHiDGY4WCuUJRwmFMsVpNVF4gztO8ANs o4dCsW0HGMDYVg2FQjitNgpvYAxMBRRKDXCKsc3xdp3KAZNIEYy7XaM9GI34oa82SRG8g7uVfTcs /n+buofO9aqfYsDym37NT7Hpl/3uFsT/dYvumHlLNdag2po5iuYkxbwDUtIPz8Kk+swaOKn2hwZO qi0kxVmFyTXf9+DkekJ7cHK9MglOEkY6kbAFR9oo24IjbSDmcJbTDgVjGpQSHHe7FHUPfX8VPxdK u6rBDcnZvOdphw1jGhQJTik41yW49Te3mhPDAo9pB4U+8xrOVhTKGs7u/nsEZ5x2UGy+x3D2olBi OGpDCTMcW2MiYYqjhUKZ4qhPakxwWvUxjXvc5weMbRG8HgplHD+7VFmbcGwNlMceFQr/grUR/PF2 ncoBk8jfMe0AFDX0gb9h2gGPBmKquRbL9552wHMHJNVci+X7Tjsg3haS4nzPaQes98okOMlTSRr7 v+W0A2QNxBxOctpB+p2uMQbt+Yf4AFIUrqV02uH8j7z2FRyVaQdA9tctRaH80dMOwDrOVhTKHz3t AMRx9qJQvnzawXZn1T7RFEcLhfJl0w7aYxqU5vQKP/RV1v6SaYcahVOqrl152uF/idd+0gixkoMA AAAASUVORK5CYII= "
        x="730"
@@ -359,4 +381,53 @@
        height="70"
        id="image3512" />
   </g>
+  <text
+     xml:space="preserve"
+     style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Purisa;-inkscape-font-specification:Purisa"
+     x="400"
+     y="90"
+     id="text3040"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan3042"
+       x="400"
+       y="90">Estamos quase lá,</tspan><tspan
+       sodipodi:role="line"
+       x="400"
+       y="140"
+       id="tspan3046">mas para entrar você terá que</tspan><tspan
+       sodipodi:role="line"
+       x="400"
+       y="190"
+       id="tspan3054"> pegar a chave do SPLab com</tspan><tspan
+       sodipodi:role="line"
+       x="400"
+       y="240"
+       id="tspan3062">Kláudio!</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+     x="655.25226"
+     y="168.19347"
+     id="text3048"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan3050"
+       x="655.25226"
+       y="168.19347"></tspan><tspan
+       sodipodi:role="line"
+       id="tspan3052"
+       x="655.25226"
+       y="218.19347" /></text>
+  <text
+     xml:space="preserve"
+     style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Purisa;-inkscape-font-specification:Purisa"
+     x="270"
+     y="270"
+     id="text3064"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan3066"
+       x="270"
+       y="270">O Barbudinho de óculos...</tspan></text>
 </svg>
